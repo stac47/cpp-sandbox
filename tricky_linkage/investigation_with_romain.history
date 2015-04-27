@@ -1,0 +1,28 @@
+  520  cd ../tricky_linkage/
+  521  g++ main.cpp 
+  522  ls
+  523  mv Value.h SpecialChars.h
+  524  g++ main.cpp 
+  525  ls
+  526  g++ -c main.cpp 
+  527  ll
+  528  nm main.o
+  529  nm main.o | grep kSpace
+  530  g++ main.o -o main.exe
+  531  g++ -cS main.cpp 
+  532  g++ -c -S main.cpp 
+  533  ll
+  534  vim main.s 
+  535  %
+  536  g++ -c -S main.cpp 
+  537  vim main.s 
+  538  %
+  539  g++ -c main.cpp 
+  540  vim main.s 
+  541  %
+  542  g++ -c main.cpp 
+  543  g++ -shared -fPIC -fvisibility=hidden -o main.so main.cpp 
+  544  nm -C --defined-only main.
+  545  nm -C --defined-only main.so
+  546  nm -C main.so
+  547  history > investigation_with_romain.history
