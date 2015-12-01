@@ -4,14 +4,13 @@
 
 #include <boost/algorithm/string/join.hpp>
 
-using namespace std;
-using namespace boost::algorithm;
+namespace ba = boost::algorithm;
 
 int main(int argc, const char* argv[]) {
-    vector<string> v;
+    std::vector<std::string> v;
     v.push_back("Laurent");
     v.push_back("Stephanie");
-    cout << join(v, " & ") << endl;
+    std::cout << ba::join(v, " & ") << std::endl;
 }
 
 
