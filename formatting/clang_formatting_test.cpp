@@ -44,10 +44,13 @@ void Displayer::display(const std::string& iText)
 } // namespace cpp
 } // namespave stac
 
+using stac::cpp::Displayer;
+using stac::cpp::DisplayLongText;
+
 int main(int argc, const char* argv[])
 {
-    stac::cpp::DisplayLongText();
-    stac::cpp::Displayer d("Stac");
+    DisplayLongText();
+    Displayer d("Stac");
     d.display("Hello World");
 }
 
