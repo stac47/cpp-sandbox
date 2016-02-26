@@ -3,8 +3,6 @@
 
 #include <boost/lexical_cast.hpp>
 
-class A {};
-
 int main(int argc, const char* argv[])
 {
     A a;
