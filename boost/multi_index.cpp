@@ -31,7 +31,7 @@ struct User
 
 using boost::multi_index_container;
 using boost::multi_index::indexed_by;
-using boost::multi_index::ordered_non_unique;
+using boost::multi_index::ordered_unique;
 using boost::multi_index::member;
 using boost::multi_index::composite_key;
 using boost::multi_index::sequenced;
@@ -39,7 +39,7 @@ using boost::multi_index::sequenced;
 typedef multi_index_container<
     User,
     indexed_by<
-        ordered_non_unique<
+        ordered_unique<
             composite_key<
                 User,
                 member<User, std::string, &User::firstname>,
@@ -79,9 +79,21 @@ int main(int argc, const char *argv[])
     std::cout << it->age << std::endl;
     std::cout << it->link->firstname << std::endl;
 
+    it = users.find(boost::make_tuple("laurent", "stacul"));
+    it->link->firstname = "TOTO";
+
+    it = users.find(boost::make_tuple("laurent", "stacul"));
+    std::cout << it->link->firstname << std::endl;
+
     users.erase(it);
     it = users.find(boost::make_tuple("laurent", "stacul"));
     std::cout << std::boolalpha << (it == users.get<0>().end()) << std::endl;
+
+    std::cout << "=======================================" << std::endl;
+    for (it = users.get<0>().begin(); it != users.get<0>().end(); ++it)
+    {
+        std::cout << it->firstname << std::endl;
+    }
 
     return 0;
 }
