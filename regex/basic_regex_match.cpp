@@ -4,16 +4,16 @@
 
 int main(int argc, const char *argv[])
 {
-    std::string s = "12-3-1-0-1-1-0-23";
+    std::string s = "abc def: ghi:f";
     std::smatch m;
-    std::regex_search(s, m, std::regex("-0-\\d*$"));
+    std::regex_search(s, m, std::regex("([^:]*):?(.*)"));
     if (m.empty())
     {
         std::cout << "Not Found" << std::endl;
     }
     else
     {
-        std::cout << "Found " << m[0] << std::endl;
+        std::cout << "Found " << m[1] << ", " << m[2] << std::endl;
     }
     return 0;
 }

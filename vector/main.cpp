@@ -1,19 +1,21 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
 
-using namespace std;
-
 int main(int argc, const char* argv[]) {
-    vector<int> v(10);
+    std::vector<int> v(10);
     for (int i=0; i < 10; ++i) {
         v[i] = 2 * i;
     }
-    cout << "Size: " << v.size() << endl;
+    std::cout << "Size: " << v.size() << std::endl;
     v.resize(5);
-    for (vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
-        cout << *it << " ";
+    for (std::vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
+        std::cout << *it << " ";
     }
-    cout << endl;
-    cout << "ReSize: " << v.size() << endl;
+    std::cout << std::endl;
+    std::cout << "ReSize: " << v.size() << std::endl;
+
+    auto max = std::max(v.begin(), v.end());
+    std::cout << "Max: " << *max << std::endl;
 }
 
