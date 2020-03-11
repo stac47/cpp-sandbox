@@ -11,7 +11,7 @@ libb.so: b.o
 	gcc -g -shared -o libb.so b.o
 
 main: main.c
-	gcc -g -o main main.c -lb -la a.o
+	gcc -g -Wl,--no-as-needed -o main main.c -la -lb
 
 all: liba.so libb.so main
 
